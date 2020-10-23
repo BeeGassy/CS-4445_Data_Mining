@@ -44,7 +44,7 @@ def compute_BA(H, AB):
     hits = H
     atBats = AB
 
-    BA = (hits / atBats) 
+    BA = (hits / atBats)
 
     #########################################
     return BA
@@ -74,6 +74,15 @@ def compute_BA(H, AB):
 def compute_OBP(H, AB, BB, HBP, SF):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    hits = H
+    atBats = AB
+    walks = BB
+    hitByPitch = HBP
+    sacrificeFly = SF
+
+    OBP = (hits + walks + hitByPitch) / atBats
+
+
 
     #########################################
     return OBP
@@ -104,6 +113,8 @@ def compute_B1(H, B2, B3, HR):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
 
+    B1 = H - B2 - B3 - HR
+
     #########################################
     return B1
     #-----------------
@@ -132,6 +143,8 @@ def compute_TB(B1, B2, B3, HR):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
 
+    TB = B1 + (2 * B2) + (3 * B3) + (4 * HR)
+
     #########################################
     return TB
     #-----------------
@@ -157,6 +170,8 @@ def compute_TB(B1, B2, B3, HR):
 def compute_SLG(TB, AB):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+
+    SLG = TB / AB
 
     #########################################
     return SLG
@@ -186,6 +201,11 @@ def compute_SLG(TB, AB):
 def compute_runs(H, BB, TB, AB):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    Hits = H
+    Walks = BB
+    atBats = AB
+
+    RC = ((Hits + Walks) x TB) / (atBats + Walks)
 
     #########################################
     return RC
@@ -212,6 +232,15 @@ def compute_runs(H, BB, TB, AB):
 def compute_wins(RC, RA):
     #########################################
     ## INSERT YOUR CODE HERE (4 points)
+
+    runsCreated = RC
+    runsAllowed = RA
+
+    squareRC = (runsCreated ** 2)
+    squareRA = (runsAllowed ** 2)
+
+
+    W = (squareRC) / (squareRC + squareRA)
 
     #########################################
     return W
