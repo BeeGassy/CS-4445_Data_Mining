@@ -223,7 +223,7 @@ def compute_runs(H, BB, TB, AB):
     Walks = BB
     atBats = AB
 
-    RC = ((Hits + Walks) x TB) / (atBats + Walks)
+    RC = ((Hits + Walks) * TB) / (atBats + Walks)
 
     #########################################
     return RC
