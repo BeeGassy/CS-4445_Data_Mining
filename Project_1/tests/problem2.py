@@ -40,12 +40,14 @@ def dataframe():
     #########################################
     # INSERT YOUR CODE HERE (3 points)
 
-    data = {
+    d = {
         'height': [1, 2, 3],
         'width': [4, 5, 6]
     }
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data=d)
     print(df)
+
+    X = df
     #########################################
     return X
     # -----------------
