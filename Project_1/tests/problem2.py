@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import pandas as pd
 # Note: please don't import any new package. You should solve this problem using only the package(s) above.
-#-------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 '''
     Problem 2: Getting familiar with pandas package (27 points)
@@ -20,7 +20,7 @@ import pandas as pd
     A list of all variables being used in this problem is provided at the end of this file.
 '''
 
-#----------------------------------------------------
+# ----------------------------------------------------
 '''
     Create the following data frame with 2 columns (height and width) and 3 rows/records using Pandas:
 	|'height'| 'width' |
@@ -33,20 +33,22 @@ import pandas as pd
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def dataframe():
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     data = {
         'height': [1, 2, 3],
         'width': [4, 5, 6]
     }
-    df = pd.dataframe(data)
+    df = pd.DataFrame(data)
     print(df)
     #########################################
     return X
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -54,7 +56,8 @@ def dataframe():
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Load a data frame from CSV file. The CSV file contains a header line (the first row), indicating the names of all the columns.
     ---- Inputs: --------
@@ -64,14 +67,16 @@ def dataframe():
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def load_csv(filename='A.csv'):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
     return X
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -79,7 +84,8 @@ def load_csv(filename='A.csv'):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Save a data frame (X) into a CSV file (filename). Note the CSV file should NOT contain the index column.
     ---- Inputs: --------
@@ -88,13 +94,15 @@ def load_csv(filename='A.csv'):
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def save_csv(X, filename='A.csv'):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -102,7 +110,8 @@ def save_csv(X, filename='A.csv'):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     filter all the data records in a dataframe with height (column) greater or equals to a threshold value. For example, suppose we have the following dataframe as the input:
 	|'height'| 'width' |
@@ -124,14 +133,16 @@ def save_csv(X, filename='A.csv'):
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def filter_height(X, t):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
     return Xt
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -139,7 +150,8 @@ def filter_height(X, t):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Group the data records in a dataframe according to a column (k). Then sum all the values within each group. Suppose we have the following data frame X:
 	| 'ID'   | 'count' |
@@ -163,14 +175,16 @@ def filter_height(X, t):
         * To convert an index into a column, you could use reset_index() method in pandas.
         * This problem can be solved using 2 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def group_sum(X, k):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
     return Y
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -178,7 +192,8 @@ def group_sum(X, k):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Merge two data frames on a column (k) into one joint data frame. Suppose we have the following data frame X:
 	| 'ID'   | 'count' |
@@ -224,14 +239,16 @@ def group_sum(X, k):
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def merge(X, Y, k):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
     return J
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -239,7 +256,8 @@ def merge(X, Y, k):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Given a dataframe X and a column (k), sort data records in descending order of the values in the column (k) . Suppose we have the following data frame X:
 	|'height'| 'width' |
@@ -267,14 +285,16 @@ def merge(X, Y, k):
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def sort_values(X, k):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
     return Y
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -282,7 +302,8 @@ def sort_values(X, k):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Given a dataframe X and two columns (k, l), create a pandas series, where each element is the value in column k divided by column l. Suppose we have the following data frame X:
 	|'height'| 'width' |
@@ -307,14 +328,16 @@ def sort_values(X, k):
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def divide(X, k, l):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
     return Y
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -322,7 +345,8 @@ def divide(X, k, l):
         ---------------------------------------------------
     '''
 
-#----------------------------------------------------
+
+# ----------------------------------------------------
 '''
     Given a dataframe X, a pandas series y and a column name (k), create a new column in X as name k, insert the series y into the new column. Suppose we have the following data frame X:
 	|'height'| 'width' |
@@ -347,13 +371,15 @@ def divide(X, k, l):
     ---- Hints: --------
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+# ---------------------
+
+
 def insert_column(X, y, k):
     #########################################
-    ## INSERT YOUR CODE HERE (3 points)
+    # INSERT YOUR CODE HERE (3 points)
 
     #########################################
-    #-----------------
+    # -----------------
     '''
         TEST: Now you can test the correctness of your code above by typing the following in the terminal:
         ---------------------------------------------------
@@ -362,7 +388,7 @@ def insert_column(X, y, k):
     '''
 
 
-#--------------------------------------------
+# --------------------------------------------
 
 '''
     TEST problem 2:
@@ -388,13 +414,10 @@ def insert_column(X, y, k):
         OK
 '''
 
-#--------------------------------------------
+# --------------------------------------------
 
 
-
-
-
-#--------------------------------------------
+# --------------------------------------------
 '''
     List of All Variables
 
@@ -411,4 +434,4 @@ def insert_column(X, y, k):
 * Xt:  the result dataframe, containing only the records with heights greater or equals to the threshold t.
 
 '''
-#--------------------------------------------
+# --------------------------------------------
