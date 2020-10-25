@@ -44,6 +44,7 @@ def dataframe():
         'height': [1, 2, 3],
         'width': [4, 5, 6]
     }
+
     df = pd.DataFrame(data=d)
     print(df)
 
@@ -76,6 +77,8 @@ def load_csv(filename='A.csv'):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
 
+    X = pd.read_csv(filename)
+
     #########################################
     return X
     # -----------------
@@ -102,6 +105,8 @@ def load_csv(filename='A.csv'):
 def save_csv(X, filename='A.csv'):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
+
+    X.to_csv(path_or_buf=filename, index=False)
 
     #########################################
     # -----------------
@@ -141,6 +146,10 @@ def save_csv(X, filename='A.csv'):
 def filter_height(X, t):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
+
+    Xt = X[(X >= t).any('columns')]
+    Xt = X[X >= t].dropna()
+    print(Xt)
 
     #########################################
     return Xt
