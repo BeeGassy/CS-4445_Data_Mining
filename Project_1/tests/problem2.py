@@ -146,10 +146,7 @@ def save_csv(X, filename='A.csv'):
 def filter_height(X, t):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
-
-    Xt = X[(X >= t).any('columns')]
     Xt = X[X >= t].dropna()
-    print(Xt)
 
     #########################################
     return Xt
@@ -192,6 +189,8 @@ def filter_height(X, t):
 def group_sum(X, k):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
+    gb = X.groupby(by=k)
+    print(gb)
 
     #########################################
     return Y
