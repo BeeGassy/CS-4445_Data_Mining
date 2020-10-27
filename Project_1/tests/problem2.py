@@ -189,8 +189,8 @@ def filter_height(X, t):
 def group_sum(X, k):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
-    gb = X.groupby(by=k)
-    print(gb)
+    gb = X.groupby(k).sum()
+    Y = gb.reset_index()
 
     #########################################
     return Y
@@ -256,6 +256,8 @@ def merge(X, Y, k):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
 
+    J = X.merge(Y, on=k, how='inner')
+
     #########################################
     return J
     # -----------------
@@ -301,6 +303,7 @@ def merge(X, Y, k):
 def sort_values(X, k):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
+    Y = X.sort_values(by=k, ascending=False)
 
     #########################################
     return Y
@@ -344,6 +347,7 @@ def sort_values(X, k):
 def divide(X, k, l):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
+    Y = X[k] / X[l]
 
     #########################################
     return Y
@@ -387,6 +391,8 @@ def divide(X, k, l):
 def insert_column(X, y, k):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
+
+    X.insert(2, k, y, True)
 
     #########################################
     # -----------------
