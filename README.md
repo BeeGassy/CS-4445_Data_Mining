@@ -8,24 +8,24 @@ Project 1 is all about learning pandas manipulation and baseball. More specifica
 - [x] ~~Complete~~
 
 ## Project 2
-- [] Start
-- [] Complete
+- [ ] Start
+- [ ] Complete
 
 ## Project 3
-- [] Start
-- [] Complete
+- [ ] Start
+- [ ] Complete
 
 ## Project 4
-- [] Start
-- [] Complete
+- [ ] Start
+- [ ] Complete
 
 ## Project 5
-- [] Start
-- [] Complete
+- [ ] Start
+- [ ] Complete
 
 ## Project 6
-- [] Start
-- [] Complete
+- [ ] Start
+- [ ] Complete
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
