@@ -43,5 +43,8 @@ After running you will see within test file new CSV files have been made which w
 ## Contributing
 Pull requests are welcome. For major changes or recommendations, please open an issue first to discuss what you would like to change/request.
 
+##Thanks
+Thank you @cabroderick for the occasional help
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
