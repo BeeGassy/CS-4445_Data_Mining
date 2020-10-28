@@ -146,7 +146,7 @@ def save_csv(X, filename='A.csv'):
 def filter_height(X, t):
     #########################################
     # INSERT YOUR CODE HERE (3 points)
-    Xt = X[X >= t].dropna()
+    Xt = X[X.height >= t]
 
     #########################################
     return Xt
