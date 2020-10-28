@@ -237,7 +237,7 @@ def filter_min_AB(X4, min_AB):
 def filter_max_salary(X5, max_salary):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    X6 = X5[X4.AB <= min_AB]
+    X6 = X5[X5.salary <= max_salary]
 
     #########################################
     return X6
