@@ -49,6 +49,8 @@ def rank_players_BA(X7):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
 
+    R1 = X7.sort_values(by='BA', ascending=False)
+
     #########################################
     return R1
     #-----------------
@@ -71,7 +73,8 @@ def rank_players_BA(X7):
 def compute_players_OBP(X7):
     #########################################
     ## INSERT YOUR CODE HERE (4 points)
-
+    OBP = (X7["H"] + X7["BB"] + X7["HBP"])/(X7["AB"] + X7["BB"] + X7["HBP"] + X7["SF"])
+    X7.insert(0, "OBP", OBP, True)
     #########################################
     #-----------------
     '''
@@ -97,7 +100,8 @@ def compute_players_OBP(X7):
 def rank_players_OBP(X8):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-
+    X8.insert(0, "OBP_Ranking", X8['OBP'].rank(ascending = 1), True)
+    R2 = X8.sort_values(by='OBP', ascending=False)
     #########################################
     return R2
     #-----------------
@@ -121,6 +125,9 @@ def compute_players_1B(X8):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
 
+    B1 = X8["H"] - X8["2B"] - X8["3B"] - X8["HR"]
+    X8.insert(0, "1B", B1, True)
+
     #########################################
     #-----------------
     '''
@@ -143,6 +150,8 @@ def compute_players_1B(X8):
 def compute_players_TB(X9):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    TB = X9['1B'] + (2 * X9["2B"]) + (3 * X9["3B"]) + (4 * X9["HR"])
+    X9.insert(0, "TB", TB, True)
 
     #########################################
     #-----------------
@@ -166,6 +175,8 @@ def compute_players_TB(X9):
 def compute_players_SLG(X10):
     #########################################
     ## INSERT YOUR CODE HERE (4 points)
+    SLG = X10["TB"] / X10["AB"]
+    X10.insert(0, "SLG", SLG, True)
 
     #########################################
     #-----------------
@@ -192,6 +203,8 @@ def compute_players_SLG(X10):
 def rank_players_SLG(X11):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    X11.insert(0, "SLG_Ranking", X11['SLG'].rank(ascending = 1), True)
+    R3 = X11.sort_values(by='SLG', ascending=False)
 
     #########################################
     return R3
