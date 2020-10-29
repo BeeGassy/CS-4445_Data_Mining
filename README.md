@@ -1,3 +1,4 @@
+[![BeeGassy's github stats](https://github-readme-stats.vercel.app/api?username=beegassy)](https://github.com/beegassy/github-readme-stats)
 # Welcome
 This repository makes up the collection of projects I completed in my CS-4445, Data Mining, course. To see detailed descriptions of each project. Please navigate to their respective folders
 
