@@ -1,5 +1,5 @@
 import random
-from flask import Flask
+from flask import Flask, escape
 from jinja2 import Template,Environment,FileSystemLoader
 app= Flask(__name__) # create an app for the website
 # Note: please don't import any new package. You should solve this problem using only the package(s) above.
@@ -43,6 +43,7 @@ def hello_page():
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
 
+    webpage = 'Hello World!'
     #########################################
     return webpage
     #-----------------
@@ -69,7 +70,7 @@ def hello_page():
 def rand_page():
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-
+    webpage = str(random.randint(0, 1))
     #########################################
     return webpage
     #-----------------
@@ -99,7 +100,7 @@ def rand_page():
 def vote(ID):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-
+    webpage = 'Thank you for voting %s' % escape(ID)
     #########################################
     return webpage
     #-----------------
@@ -126,7 +127,7 @@ def vote(ID):
 def create_template():
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-
+    t = Template('Hello, {{ username }}!')
     #########################################
     return t
     #-----------------
@@ -152,6 +153,9 @@ def create_template():
 def load_template(filename):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
+    tloader =  FileSystemLoader(searchpath = "./")
+    env = Environment(loader = tloader)
+    t = env.get_template(filename)
 
     #########################################
     return t
