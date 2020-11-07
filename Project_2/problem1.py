@@ -70,7 +70,7 @@ def hello_page():
 def rand_page():
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-    webpage = str(random.randint(0, 1))
+    webpage = str(random.uniform(0, 1))
     #########################################
     return webpage
     #-----------------

@@ -138,7 +138,6 @@ def merge_team(T, R):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
     X = T.merge(R, on='ID', how='inner')
-
     #########################################
     return X
     #-----------------
