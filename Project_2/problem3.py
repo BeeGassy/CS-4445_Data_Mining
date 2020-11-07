@@ -149,9 +149,6 @@ def compute_ratings(G, n, K=16):
         R[A] = update_RA(RA, SA, EA, K)
         R[B] = update_RB(RB, SB, EB, K)
 
-
-
-
         #########################################
     return R
     #-----------------
