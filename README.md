@@ -10,6 +10,7 @@ Project 1 is all about learning pandas, data manipulation and baseball. More spe
 
 ## Project 2
 - [X] ~~Start~~
+
 Project 2 is all about taking our previous understanding of pandas and numpy as well as our new understanding of libraries like flask and jinja to make a replica of Mark Zuckerberg's "FaceMash".
 This was to develop an understanding of using probabilistic algorithms. 
 - [X] ~~Complete~~
