@@ -100,7 +100,8 @@ def rand_page():
 def vote(ID):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-    webpage = 'Thank you for voting %s' % escape(ID)
+    # webpage = 'Thank you for voting %s' % escape(ID)
+    webpage = 'Thank you for voting ' + str(ID)
     #########################################
     return webpage
     #-----------------
