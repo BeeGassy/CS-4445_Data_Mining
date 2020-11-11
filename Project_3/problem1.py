@@ -44,6 +44,7 @@ def Terms_and_Conditions():
 def load_webpages(filename):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
+    X = pd.read_csv(filename)
 
     #########################################
     return X
@@ -88,6 +89,7 @@ def load_webpages(filename):
 def count_word_frequency(X, keyword):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
+    X["Count"]= X['Description'].str.count(keyword, re.I)
 
     #########################################
     return X
@@ -121,6 +123,8 @@ def count_word_frequency(X, keyword):
 def rank_word_frequency(X1):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
+    X1.insert(0, "Freq_Rank", X1['Count'].rank(ascending = 1), True)
+    R1 = X1.sort_values(by='Freq_Rank', ascending=False)
 
     #########################################
     return R1
