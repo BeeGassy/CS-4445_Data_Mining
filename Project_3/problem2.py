@@ -157,6 +157,7 @@ def all_one_matrix(r, c):
 def mat_sum(X):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    s = X.sum(axis=0)
 
     #########################################
     return s
@@ -195,6 +196,7 @@ def mat_sum(X):
 def mat_scalar_multiplication(X, a):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    S = a * X
 
     #########################################
     return S
@@ -234,6 +236,7 @@ def mat_scalar_multiplication(X, a):
 def matrix_vector_multiplication(X, y):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    z = np.dot(X, y)
 
     #########################################
     return z
@@ -265,6 +268,8 @@ def matrix_vector_multiplication(X, y):
 def find_zeros(x):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
+    a = np.where(x == 0)
+    d = a[0]
 
     #########################################
     return d
@@ -299,6 +304,7 @@ def find_zeros(x):
 def diag_mat(x):
     #########################################
     ## INSERT YOUR CODE HERE (2 points)
+    D = np.diag(x)
 
     #########################################
     return D
