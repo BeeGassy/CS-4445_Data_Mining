@@ -91,6 +91,9 @@ def remove_sink_nodes(A):
 def compute_S(A_):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
+    count = count_out_links(A_)
+    frac = 1/count
+    S = np.where((A_ == 1), frac, A_)
 
     #########################################
     return S
@@ -126,6 +129,7 @@ def compute_S(A_):
 def compute_G(S, alpha):
     #########################################
     ## INSERT YOUR CODE HERE (6 points)
+    G = alpha * S + (1-alpha)*(1/len(S))
 
     #########################################
     return G
@@ -162,7 +166,7 @@ def compute_G(S, alpha):
 def random_walk_one_step(G, x):
     #########################################
     ## INSERT YOUR CODE HERE (6 points)
-
+    y = np.dot(G, x)
     #########################################
     return y
     #-----------------
@@ -199,7 +203,7 @@ def random_walk_one_step(G, x):
 def all_close(x, y, tol=0.01):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-
+    c = np.allclose(a = x, b = y, atol = tol)
     #########################################
     return c
     #-----------------
@@ -238,7 +242,12 @@ def all_close(x, y, tol=0.01):
 def random_walk(G, x, tol=0.01, max_steps=100):
     #########################################
     ## INSERT YOUR CODE HERE (6 points)
-
+    for i in range(max_steps):
+        y = random_walk_one_step(G, x)
+        if all_close(x, y, tol):
+            break
+        else:
+            x=y
     #########################################
     return x
     #-----------------
@@ -272,7 +281,7 @@ def random_walk(G, x, tol=0.01, max_steps=100):
 def add_column_pagerank(X2, x):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-
+    X2['PageRank'] = x
     #########################################
     return X2
     #-----------------
@@ -305,7 +314,7 @@ def add_column_pagerank(X2, x):
 def rank_pages(X3):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-
+    R3 = X3.sort_values(by='PageRank', ascending=False)
     #########################################
     return R3
     #-----------------
