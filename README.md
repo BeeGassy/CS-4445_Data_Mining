@@ -18,7 +18,7 @@ This was to develop an understanding of using probabilistic algorithms.
 ## Project 3
 - [X] ~~Start~~
 
-Project 3 was the creation of "PageRank" the processes of creating a redumentary algorithm built off the understanding of the early days of Google. This project enforced ideas like adjcency matrices, transition matrices and markov chains. 
+Project 3 was the creation of "PageRank", the processes of creating a redumentary algorithm built off the understanding of the early days of Google. This project enforced ideas like adjcency matrices, transition matrices and markov chains. 
 - [X] ~~Complete~~
 
 ## Project 4
