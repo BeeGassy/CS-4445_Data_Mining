@@ -140,6 +140,10 @@ def train_user_j(X, y, a=1e-05):
 def update_U(R, I, a=1e-05):
     #########################################
     ## INSERT YOUR CODE HERE (7 points)
+    U = []
+    for i in range(len(R[0])):
+        col_j = R[:,i]
+        U.append(ridge_regression(I[np.where(np.isnan(col_j), False, True)], col_j[np.where(np.isnan(col_j), False, True)], a))
 
     #########################################
     return U
@@ -188,7 +192,7 @@ def update_U(R, I, a=1e-05):
 def extract_item_i(Ri_, U):
     #########################################
     ## INSERT YOUR CODE HERE (7 points)
-
+    X, y = extract_user_j(Ri_, U)
     #########################################
     return X, y
     #-----------------
@@ -219,6 +223,7 @@ def extract_item_i(Ri_, U):
 def train_item_i(X, y, a=1e-05):
     #########################################
     ## INSERT YOUR CODE HERE (7 points)
+    Ii = train_user_j(X, y, a)
 
     #########################################
     return Ii
@@ -251,7 +256,7 @@ def train_item_i(X, y, a=1e-05):
 def update_I(R, U, a=1e-05):
     #########################################
     ## INSERT YOUR CODE HERE (7 points)
-
+    I = update_U(R.T, U, a)
     #########################################
     return I
     #-----------------
@@ -287,11 +292,12 @@ def collaborative_filtering(R, k=5, a=1e-05, n_steps=20):
     m,n = R.shape
     I = np.random.rand(m,k) # randomly initialize matrix I
     U = np.random.rand(n,k) # randomly initialize matrix U
+
     for _ in range(n_steps): # repeat n_steps
         #########################################
         ## INSERT YOUR CODE HERE (8 points)
-        I = None
-        U = None
+        U = update_U(R, update_I(R, U, a), a)
+        I = update_I(R, update_U(R, I, a), a)
         #########################################
     return I, U
     #-----------------
