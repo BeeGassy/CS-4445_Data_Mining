@@ -140,11 +140,14 @@ def train_user_j(X, y, a=1e-05):
 def update_U(R, I, a=1e-05):
     #########################################
     ## INSERT YOUR CODE HERE (7 points)
-    U = []
-    for i in range(len(R[0])):
-        col_j = R[:,i]
-        U.append(ridge_regression(I[np.where(np.isnan(col_j), False, True)], col_j[np.where(np.isnan(col_j), False, True)], a))
-
+    U = np.empty([R.shape[1], I.shape[1]])
+    for index, i in enumerate(R.T):
+        Uj = train_user_j(extract_user_j(i,I)[0], extract_user_j(i, I)[1], a)
+        U[index] = Uj
+    # U = []
+    # for i in range(len(R[0])):
+        # col_j = R[:,i]
+        # U.append(ridge_regression(I[np.where(np.isnan(col_j), False, True)], col_j[np.where(np.isnan(col_j), False, True)], a).flatten())
     #########################################
     return U
     #-----------------
@@ -296,8 +299,8 @@ def collaborative_filtering(R, k=5, a=1e-05, n_steps=20):
     for _ in range(n_steps): # repeat n_steps
         #########################################
         ## INSERT YOUR CODE HERE (8 points)
-        U = update_U(R, update_I(R, U, a), a)
-        I = update_I(R, update_U(R, I, a), a)
+        U = update_U(R, I, a)
+        I = update_I(R, U, a)
         #########################################
     return I, U
     #-----------------
