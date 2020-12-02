@@ -56,10 +56,11 @@ def compute_z(x, m):
         * The loss L is a scalar, computed from the average of the cross entropy losses on all samples in the mini-batch. For example, if the cross entropy losses on the 3 training samples are 0.1, 0.2, 0.3, then the average loss L is (0.1+0.2+0.3)/3 = 0.2.
         * This problem can be solved using 1 line(s) of code.
 '''
-#---------------------
+#---------------------cd
 def compute_L(z, y):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
+    L = th.nn.BCEWithLogitsLoss()(z, y)
     #########################################
     return L
     #-----------------
