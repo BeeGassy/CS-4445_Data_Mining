@@ -60,11 +60,7 @@ def compute_z(x, m):
 def compute_L(z, y):
     #########################################
     ## INSERT YOUR CODE HERE (5 points)
-<<<<<<< HEAD
     L = th.nn.BCEWithLogitsLoss()(z,y)
-=======
-    L = th.nn.BCEWithLogitsLoss()(z, y)
->>>>>>> 0b6b38e7f96ccc64675f306bffddf0e690be5f33
     #########################################
     return L
     #-----------------
