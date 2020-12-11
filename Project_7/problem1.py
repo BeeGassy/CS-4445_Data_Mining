@@ -20,7 +20,7 @@ def Terms_and_Conditions():
     '''
     #****************************************
     #* CHANGE CODE HERE
-    Read_and_Agree = False  #if you have read and agree with the term above, change "False" to "True".
+    Read_and_Agree = True  #if you have read and agree with the term above, change "False" to "True".
     #****************************************
     return Read_and_Agree
 
@@ -106,8 +106,8 @@ class TicTacToe(BoardGame):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
-
-
+        a = np.where(s.b == 0)
+        m = list(zip(a[0], a[1]))
         #########################################
         return m
     
@@ -139,20 +139,29 @@ class TicTacToe(BoardGame):
         #########################################
         ## INSERT YOUR CODE HERE
 
+        # check for draw
 
+        a = [0, 0, 0] # intitialize value to draw
+        e = 0
 
-        # check the 8 lines in the board to see if the game has ended.
+        # check the 6 lines in the board to see if the game has ended.
+        a += np.fix(np.sum(s.b, axis=0)/3)
+        a += np.fix(np.sum(s.b, axis=1)/3)
+        e = np.sum(a)
 
+        # check the diagonals
+        e += np.fix(np.trace(s.b)/3)
+        e += np.fix(np.trace(np.fliplr(s.b))/3)
 
-        # if the game has ended, return the game result 
-
-
-
-
-
+        if e==0:
+            # if the game has ended, return the game result
+            if np.count_nonzero(s.b) == 9:
+                return 0
+            else:
+                # if the game has not ended, return None
+                return None
 
         # if the game has not ended, return None
-
         #########################################
         return e
     
@@ -247,10 +256,10 @@ class RandomPlayer(Player):
         ## INSERT YOUR CODE HERE
 
         # find all valid moves in the current game state
-
+        valid_moves = g.get_valid_moves(s)
         # randomly choose one valid move
-
-
+        move = valid_moves[np.random.randint(0, len(valid_moves))]
+        r, c = move[0], move[1]
         #########################################
         return r,c
 
@@ -492,14 +501,14 @@ class MMNode(Node):
         ## INSERT YOUR CODE HERE
 
         # get the list of valid next move-state pairs from the current game state
-
+        valid_moves = g.get_move_state_pairs(self.s)
 
         # expand the node with one level of children nodes 
-
+        for move in valid_moves:
             # for each next move m and game state s, create a child node
-
+            child = MMNode(s=move[1], p=self, c=[], m=move[0], v=None)
             # append the child node the child list of the current node 
-
+            self.c.append(child)
         #########################################
 
     ''' TEST: Now you can test the correctness of your code above by typing `nosetests -v test1.py:test_expand' in the terminal.  '''
@@ -678,14 +687,13 @@ class MMNode(Node):
         ## INSERT YOUR CODE HERE
 
         # if the game in the current state has not ended yet 
-
+        if g.check_game(s=self.s) == None:
             #expand the current node by one-level of children nodes
-
+            self.expand(g)
             # recursion: for each child node, call build_tree() function 
             # to build a subtree rooted from each child node
-
-
-
+            for child in self.c:
+                child.build_tree(g)
         #########################################
 
 
@@ -844,12 +852,11 @@ class MMNode(Node):
         #########################################
         ## INSERT YOUR CODE HERE
         # (1) if the game has already ended, the value of the node is the game result 
-
-
-
-
-
+        if g.check_game(self.s) != None:
+            print()
         # (2) if the game has not ended yet: 
+        else:
+            print()
         #   (2.1)first compute values of all children nodes recursively by calling compute_v() in each child node
 
 
