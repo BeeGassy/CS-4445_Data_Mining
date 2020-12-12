@@ -153,15 +153,13 @@ class TicTacToe(BoardGame):
         e += np.fix(np.trace(s.b)/3)
         e += np.fix(np.trace(np.fliplr(s.b))/3)
 
-        if e==0:
+        if e == 0:
             # if the game has ended, return the game result
             if np.count_nonzero(s.b) == 9:
                 return 0
             else:
                 # if the game has not ended, return None
                 return None
-
-        # if the game has not ended, return None
         #########################################
         return e
     
@@ -260,6 +258,7 @@ class RandomPlayer(Player):
         # randomly choose one valid move
         move = valid_moves[np.random.randint(0, len(valid_moves))]
         r, c = move[0], move[1]
+
         #########################################
         return r,c
 
@@ -506,9 +505,10 @@ class MMNode(Node):
         # expand the node with one level of children nodes 
         for move in valid_moves:
             # for each next move m and game state s, create a child node
-            child = MMNode(s=move[1], p=self, c=[], m=move[0], v=None)
+            child = MMNode(s = move[1], p = self, c = [], m = move[0], v = None)
             # append the child node the child list of the current node 
             self.c.append(child)
+
         #########################################
 
     ''' TEST: Now you can test the correctness of your code above by typing `nosetests -v test1.py:test_expand' in the terminal.  '''
@@ -687,7 +687,7 @@ class MMNode(Node):
         ## INSERT YOUR CODE HERE
 
         # if the game in the current state has not ended yet 
-        if g.check_game(s=self.s) == None:
+        if g.check_game(s = self.s) == None:
             #expand the current node by one-level of children nodes
             self.expand(g)
             # recursion: for each child node, call build_tree() function 
@@ -852,23 +852,25 @@ class MMNode(Node):
         #########################################
         ## INSERT YOUR CODE HERE
         # (1) if the game has already ended, the value of the node is the game result 
+        child_vals = []
+
         if g.check_game(self.s) != None:
-            print()
+            self.v = g.check_game(self.s)
+            return
         # (2) if the game has not ended yet: 
-        else:
-            print()
         #   (2.1)first compute values of all children nodes recursively by calling compute_v() in each child node
-
-
-
+        for child in self.c:
+            child.compute_v(g)
+            child_vals.append(child.v)
 
         #   (2.2) now the values of all the children nodes are computed, let's compute the value of the current node:
         #       (2.2.1) if it is X player's turn, the value of the current node is the max of all children node's values 
         #       (2.2.2) if it is O player's turn, the value of the current node is the min of all children node's values 
+        if self.s.x == 1: # X player's turn
+            self.v = np.max(child_vals)
 
-
-
-
+        if self.s.x == -1: # O player's turn
+            self.v = np.min(child_vals)
         #########################################
 
     ''' TEST: Now you can test the correctness of your code above by typing `nosetests -v test1.py:test_compute_v' in the terminal.  '''
@@ -899,7 +901,7 @@ class MiniMaxPlayer(Player):
     
             (3) Choose Next Move: the agent will choose the child node with the largest/smallest value as the next move.
                 if the MinMax player is the "X" player in the game, it will choose the largest value among children nodes. 
-                if the MinMax player is the "O" player in the game, it will choose the smallest value among children nodes. 
+                if the MinMax player is the "O" player in the game, it will choose the smallest value among children nodes.
     
            Inputs:
                 n: the current node of the search tree, assuming the values in all nodes are already computed.
@@ -938,11 +940,13 @@ class MiniMaxPlayer(Player):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        vals = [node.v for node in n.c]
 
-
-
-
-
+        if n.s.x == 1:
+            r,c = n.c[np.argmax(vals)].m[0], n.c[np.argmax(vals)].m[1]
+        
+        if n.s.x == -1:
+            r, c = n.c[np.argmin(vals)].m[0], n.c[np.argmin(vals)].m[1]
         #########################################
         return r,c
     
@@ -1028,6 +1032,5 @@ class MiniMaxPlayer(Player):
 ''' DEMO 2: Othello: Unfortunately, Othello is a larger game where the MiniMax method won't work. 
     In larger games, we will need sampling-based method, such as Monte-Carlo Tree Search in Problem 2'''
 #-----------------------------------------------
-
 
 
