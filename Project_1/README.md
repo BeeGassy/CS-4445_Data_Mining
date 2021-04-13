@@ -44,7 +44,7 @@ After running you will see within test file new CSV files have been made which w
 Pull requests are welcome. For major changes or recommendations, please open an issue first to discuss what you would like to change/request.
 
 ## Thanks
-Thank you to @cabroderick for the occasional help
+Thank you to @cabroderick for the late night/early morning help
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
